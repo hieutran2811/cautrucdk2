@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính thuế tu nhập cá nhân</title>
+</head>
+<body>
+<label>
+    Tổng thu nhập:
+    <input id="TTN" type="text"/>
+</label><br/><br/>
+<label>
+    Các khoản được miễn:
+    <input id="KDM" type="text"/>
+</label><br/><br/>
+<label>
+    Các khoản giảm trừ:
+    <input id="KGT" type="text"/>
+</label><br/><br/>
+<button onclick="tinh()">Tính thuế TNCN</button>
+
+<p id="result"></p>
+
+<script>
+    function tinh(){
+        let tinhthue;
+        let TTN = Number(document.getElementById("TTN").value);
+        let duocmien = Number(document.getElementById("KDM").value);
+        let giamtru = Number(document.getElementById("KGT").value);
+
+        tinhthue = TTN - duocmien - giamtru;
+        if (TTN <=60 && TTN>0){
+            thue = 0.05 * tinhthue;
+        }else if (TTN <= 120){
+             thue = 3 + (tinhthue - 60) * 0.1;
+        }else {
+            thue = 9 + (tinhthue - 120) * 0.15;
+        }
+        document.getElementById("result").innerHTML = "Tiền thuế TNCN là: " + thue;
+    }
+</script>
+</body>
+</html>

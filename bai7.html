@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Giải phương trình bậc 2</title>
+</head>
+<body>
+<p>Phương trình bậc hai có dạng: Ax<sup>2</sup> + Bx + C = 0</p><br/>
+<label> Số A:
+    <input id="soA">
+</label>
+<label> Số B:
+    <input id="soB">
+</label>
+<label> Số C:
+    <input id="soC">
+</label>
+<button onclick="tinhtoan()">Tính toán</button>
+<p id="result"></p>
+<script>
+    function tinhtoan() {
+        let a = parseFloat(document.getElementById("soA").value);
+        let b = parseFloat(document.getElementById("soB").value);
+        let c = parseFloat(document.getElementById("soC").value);
+        let x;
+        let x1, x2;
+        let delta = Math.pow(b, 2) - 4 * a * c;
+        if (delta<0){
+            document.getElementById("result").innerHTML = "Phương trình vô nghiệm.";
+        }else if(delta === 0){
+            x = -b/(2*a);
+            x=Math.round(x*10000)/10000;
+            document.getElementById("result").innerHTML = "Phương trình có nghiệm kép <br/> Giá trị của x = " + x;
+        }else{
+            x1=(-b+Math.sqrt(delta))/(2*a);
+            x2=(-b-Math.sqrt(delta))/(2*a);
+            x1=Math.round(x1*10000)/10000;
+            x2=Math.round(x2*10000)/10000;
+            document.getElementById("result").innerHTML = "Phương trình có 2 nghiệm <br/> Giá trị của x1 = " + x1 + "<br/>" + "Giá trị của x2 = " + x2 + "<br/>";
+        }
+    }
+</script>
+</body>
+</html>

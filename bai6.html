@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Giải phương trình bậc 1</title>
+</head>
+<body>
+<p>Phương trình bậc nhất có dạng: Ax + B = 0</p><br/>
+<label> Số A:
+    <input id="soA">
+</label>
+<label> Số B:
+    <input id="soB">
+</label>
+<button onclick="tinhtoan()">Tính toán</button>
+<p id="result"></p>
+<script>
+function tinhtoan() {
+    let a = parseFloat(document.getElementById("soA").value);
+    let b = parseFloat(document.getElementById("soB").value);
+    let x = -b/a;
+    document.getElementById("result").innerHTML = "Giá trị của x = " + x;
+}
+</script>
+</body>
+</html>

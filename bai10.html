@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính giá điện</title>
+</head>
+<body>
+<p>Số điện sử dụng:</p>
+<input id="num" type="text"/>
+<button onclick="tinhtien()">Tính toán</button><br/>
+<br/>
+<p id="result"></p>
+<table border="1">
+    <tr>
+        <th colspan="2">Bảng giá điện</th>
+    </tr>
+    <tr>
+        <td>Số điện (số)</td>
+        <td>Đơn giá (VND)</td>
+    </tr>
+    <tr>
+        <td>0-10</td>
+        <td>10.000</td>
+    </tr>
+    <tr>
+        <td>11-50</td>
+        <td>12.000</td>
+    </tr>
+    <tr>
+        <td>>50</td>
+        <td>15.000</td>
+    </tr>
+</table>
+    <script>
+        function tinhtien() {
+            let sodien = parseFloat(document.getElementById("num").value);
+            let tiendien;
+            if (sodien <= 10 && sodien>0){
+                tiendien = sodien*10000;
+                console.log(tiendien);
+            }else if(sodien <= 50){
+                tiendien = 100000 + (sodien - 10) * 12000;
+                console.log(tiendien);
+            }else {
+                tiendien = 100000 + 480000 + (sodien-50) * 15000;
+                console.log(tiendien);
+            }
+            document.getElementById("result").innerHTML = "Tiền điện phải trả là: " + tiendien + " vnd";
+        }
+    </script>
+</body>
+</html>
